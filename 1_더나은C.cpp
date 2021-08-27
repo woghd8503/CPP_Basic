@@ -1,4 +1,4 @@
-#define ON_MAIN 
+//#define ON_MAIN 
 #ifdef ON_MAIN
 
 #include <stdio.h>  // C header
@@ -168,9 +168,10 @@ int main()
 		::Gugudan(); //OK
 	}
 
-	//Pointer(C) VS Reference(CPP)
+	//Pointer(C/CPP:주소) VS Reference(CPP:별명)
 	if (0)
 	{
+		//Pointer(C)--------------------
 		int a = 10;
 		int* p1 = &a;
 
@@ -248,7 +249,7 @@ int main()
 		cout << "학생이 총 몇 명입니까?";
 		cin >> count;
 
-		int kor[4];
+		int kor[4];//정적 메모리 : Compile time에 결정
 		//int eng[count];// error
 
 		//C: malloc/free
@@ -300,7 +301,7 @@ int main()
 		}
 
 		//범위기반 for문
-		for (auto x : aList) // 복사
+		for (auto x : aList) //값의 복사
 		{
 			cout << x << endl;
 		}

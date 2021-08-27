@@ -1,4 +1,4 @@
-#define ON_MAIN 
+//#define ON_MAIN 
 #ifdef ON_MAIN
 
 #include <stdio.h>  // C header
@@ -92,7 +92,7 @@ int main()
 	}
 
 	//정적멤버(변수, 함수)
-	if (1)
+	if (0)
 	{
 		cout << MyString::m_nCount << endl;
 
@@ -104,6 +104,18 @@ int main()
 			cout << "안" << c.m_nCount << endl;
 		}
 		cout << b.m_nCount << endl;
+	}
+
+	//추가확인
+	if (1)
+	{
+		//MyString a;
+		//MyString b("홍길동");
+		//MyString c(b);
+
+		FunnyString x;
+		x.SetString("바보");
+		cout << x.GetString() << endl;
 	}
 	return 0;
 }

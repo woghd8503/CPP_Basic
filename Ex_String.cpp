@@ -3,7 +3,7 @@
 
 using namespace std;
 
-int MyString::m_nCount = 0; // 정적멤버는 "정의"를 해줘야 됨  .17줄
+int MyString::m_nCount = 0; // 정적멤버는 "정의"를 해줘야 됨
 
 //기본 생성자
 MyString::MyString() 
@@ -17,7 +17,7 @@ MyString::MyString()
 
 //변환 생성자
 MyString::MyString(const char* pszParam) 
-	: m_nLength(0), m_pszData(NULL)
+	: MyString()
 {
 	m_nCount++;
 	//m_nLength = 0;
@@ -28,11 +28,8 @@ MyString::MyString(const char* pszParam)
 
 //복사 생성자
 MyString::MyString(const MyString& pszParam)
-	: m_nLength(0), m_pszData(NULL)
+	: MyString()
 {
-	//m_nLength = 0;
-	//m_pszData = NULL;
-	m_nCount++;
 	cout << "MyString의 복사생성자" << endl;
 	SetString(pszParam.GetString());
 }
@@ -84,3 +81,15 @@ void MyString::Release() //동적 메모리 해제함수
 	m_pszData = NULL;
 	m_nLength = 0;
 };
+
+int FunnyString::SetString(const char* pszParam)
+{
+	int nResult;
+
+	if (strcmp(pszParam, "바보") == 0)
+		MyString::SetString("천재천재천재천재천재");
+	else
+		MyString::SetString(pszParam);
+
+	return nResult;
+}

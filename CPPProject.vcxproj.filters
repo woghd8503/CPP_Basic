@@ -33,6 +33,33 @@
     <ClCompile Include="Ex_StringMain.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="5_상속.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="6.가상함수.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Ex_CalcFare.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Ex_AddrBook.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="7_파일입출력.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="8_템플릿.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="9_제너릭.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="9_제너릭1.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Ex_AddressBookSTL.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Ex_String.h">

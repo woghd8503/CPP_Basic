@@ -8,6 +8,7 @@ public:
 	MyString(const MyString& pszParam); // 복사 생성자
 
 	~MyString();
+
 	//연산자 오버로딩
 	// left = right
 	// left operator=(right);
@@ -26,4 +27,10 @@ public:
 	const char* GetString() const;
 private:
 	void Release();//동적 메모리 해제함수
+};
+
+class FunnyString : public MyString
+{
+public:
+	int SetString(const char* pszParam);
 };

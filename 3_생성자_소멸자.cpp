@@ -1,4 +1,4 @@
-#define ON_MAIN 
+//#define ON_MAIN 
 #ifdef ON_MAIN
 
 #include <stdio.h>  // C header

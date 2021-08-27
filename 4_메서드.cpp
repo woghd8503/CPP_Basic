@@ -1,4 +1,4 @@
-#define ON_MAIN 
+//#define ON_MAIN 
 #ifdef ON_MAIN
 
 #include <stdio.h>  // C header
@@ -37,6 +37,7 @@ class CTest
 public:
 	int m_nData;
 	int m_nData2;
+	static int m_nCount;
 
 	CTest() : m_nData(10), m_nData2(20)  // 초기화 목록
 	{
