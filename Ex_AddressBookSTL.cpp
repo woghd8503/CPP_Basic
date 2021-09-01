@@ -9,13 +9,13 @@ using namespace std;
 
 /////////////////////////////////////////////////////////////////////////
 // 주소록이 저장될 데이터 파일
-#define DATA_FILE_NAME "c:\\temp\\AddrBookSTL.dat"
+#define DATA_FILE_NAME "c:\\Temp\\AddrBookSTL.dat"
 
 /////////////////////////////////////////////////////////////////////////
 class UserData
 {
 public:
-
+	UserData() { }
 	UserData(string strName, int nAge, int nGender)
 	{
 		this->strName = strName;
@@ -135,12 +135,7 @@ void Search()
 	//		break;
 	//	}
 	//	p++;
-	//}
-
-	if (isHit == false)
-	{
-		cout << "삭제할 데이터를 찾을 수 없습니다" << endl;
-	}
+	//}	
 }
 
 /////////////////////////////////////////////////////////////////////////
@@ -167,7 +162,7 @@ void PrintAll()
 
 	// 3. 반복자 사용
 	auto p = begin(udata);
-	while(p != end(udata));
+	while(p != end(udata))
 	{
 		p->PrintData();
 		p++;
@@ -242,11 +237,26 @@ int LoadList(string strFileName)
 	if (f.is_open())
 	{
 		//헤더 정보
-		f >> g_nCount;
+		int count = 0;
+		f >> count;
 		//데이터 정보
-		for (int i = 0; i < g_nCount; i++)
+		for (int i = 0; i < count; i++)
 		{
-			//f.read((char*)(g_AddrBook + i), sizeof(UserData));
+			//f.read((char*))(g_AddrBook + i), sizeof(UserData);
+
+
+			// 동적메모리를 잡아서 여기에 읽어온다
+			// 1. 파일에서 읽어올 공간(buff)을 만든다.
+			UserData* buff = new UserData;
+			
+			// 2. 그 공간으로 파일에서 1명의 정보를 읽는다.
+
+			// 파일에서 읽는다
+			f.read((char*)buff, sizeof(UserData));
+			
+			// 3. 컨테이너에 1명의 정보를 넣는다.
+			//컨테이너에 push 함
+			udata.push_back( *buff );
 		}
 		f.close();
 	}
@@ -263,11 +273,11 @@ int SaveList(string strFileName)
 	if (f.is_open())
 	{
 		//헤더 정보
-		f << g_nCount;
+		f << udata.size();
 		//데이터 정보
-		for (int i = 0; i < g_nCount; i++)
+		for (auto& item : udata)
 		{
-			//f.write((const char*)(g_AddrBook + i), sizeof(UserData));
+			f.write((const char*)&item, sizeof(UserData));
 		}
 		f.close();
 	}
